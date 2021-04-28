@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="/css/Grid.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=PT+Sans+Narrow&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <title>Mrudang</title>
+</head>
+
+<body>
+
+  <%if (alert==='success' ) { %>
+    <div class="alert alert-success" role="alert">
+      Sucessfully Registered
+    </div>
+    <% } %>
+      <%if (alert==='s-failed' ) { %>
+        <div class="alert alert-danger" role="alert">
+          Registration Unsuccessfull
+        </div>
+        <% } %>
+          <%if (alert==='login-f' ) { %>
+            <div class="alert alert-danger" role="alert">
+              Login failed
+            </div>
+            <% } %>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal" href="#">Login</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          What are you looking for
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/getkharif" id="kharif_clk">Kharif crops</a></li>
+                          <li><a class="dropdown-item" href="/getrabi" id="rabi_clk">Rabi Crops</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+              <hr>
+              <hr>
+              <div class="title">
+                <h2>Mrudang Services</h2>
+                <p style="font-family: 'Bangers', cursive; letter-spacing: 2px; color:black;" class="title_after">WE
+                  CONNECT FARMERS!!!</p>
+                <div class="title_after" id="date"></div>
+              </div>
+
+
+              <!--CAROUSEL PART-->
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                  <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                  <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/images/2330496.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“No race can prosper until it learns there is as much dignity in tilling a field as in writing
+                        a poem.” – Booker T. Washington</h3>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/896a3fe7f6ba914f26e2d1ea588d583f.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“Business opportunities are like buses, there’s always another one coming.” – Richard Branson.
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/buffalo-farmer-cultivating-agriculture.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“You know, farming looks mighty easy when your plow is a pencil, and you’re a thousand miles
+                        from the corn field.” – Dwight D. Eisenhower</h3>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/field-1611823532613-4852.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“The farmer has to be an optimist or he wouldn’t still be a farmer.” – Will Rogers</h3>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/photo-1586771107445-d3ca888129ff.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“Farming is a profession of hope.” – Brett Brian</h3>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/shutterstock_1450482422.jpg" class="d-block w-100 bgimg" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>“It is only the farmer who faithfully plants seeds in the Spring, who reaps a harvest in the
+                        Autumn.” – B. C. Forbes</h3>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+
+              <div class="container my-3">
+                <section class="features js--features" style="height: 100vh;">
+                  <div class="row">
+                    <h1 style="text-align: center;">Mrudang &mdash; About us</h1>
+                    <p class="long-copy">
+                      <bold>We at Mrudang always tries to work for welfare of our farmers. We try to provide them suitable prices for their produce and making the process as little complex as possible.
+                    </bold>
+                      </p>
+                  </div>
+                  <div class="row my-3">
+                    <div class="col span-1-of-4 box">
+                      <i class="fa fa-cloud"></i>
+                      <h2 style="margin-bottom: 30px;">24*7 Helpline Service</h2>
+                      <p>
+                        “There is a spiritual aspect to our lives — when we give, we receive — when a business does something good for somebody, that somebody feels good about them!” – Ben Cohen, Co-Founder Ben & Jerry’s<br><br>
+                        Never hesitate to contact us regarding your queries.We are always here to provide solutions to your problems.
+                      </p>
+                    </div>
+                    <div class="col span-1-of-4 box">
+                      <i class="fa fa-car"></i>
+                      <h2 style="margin-bottom: 30px;">100% Genuine producers</h2>
+                      <p>
+                        "Quality in a product or service is not what the supplier puts in. it is what the customer gets out and is willing to pay for"<br><br>
+                        We are connected with thousands of farmers who provide genuine agricultural produce.
+                      </p>
+                    </div>
+                    <div class="col span-1-of-4 box">
+                      <i class="fa fa-bars"></i>
+                      <h2 style="margin-bottom: 30px;">1lakh+ Customer base</h2>
+                      <p>
+                        “To give real service you must add something which cannot be bought or measured with money, and that is sincerity and integrity.” – Don Alden Adams, President Watch Tower Bible and Tract Society of Pennsylvania<br><br>
+                       Already thousands of customers are connected with us who are very much satisfied with our service.
+                      </p>
+                    </div>
+                    <div class="col span-1-of-4 box">
+                      <i class="fa fa-file"></i>
+                      <h2 style="margin-bottom: 30px;">Safe and Reliable</h2>
+                      <p>
+                        "You’ll never have a product or price advantage again. They can be easily duplicated, but a strong customer service culture can’t be copied."
+                        <br><br>
+                        We provide most safe and reliable platform for you to sell your produce.
+                      </p>
+                    </div>
+                  </div>
+                </section>
+                </div>
+
+                <section class="footer">
+                  <div class="row">
+                      <div class="col span-1-of-2">
+                      <ul class="navigation">
+                          <li><a href=#>About us</a></li>
+                          <li><a href=#>Blog</a></li>
+                          <li><a href=#>Press</a></li>
+                          <li><a href=#>iOS App</a></li>
+                      </ul>
+                      </div>
+                       <div class="col span-1-of-2">
+                      <ul class="links-nav">
+                          <li><a href=#>Helpline 9756xxxx</a></li>
+                      </ul>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <p class="last-stat" style="color: white;">
+                          Copyright &copy; All Rights Reserved 2021
+                      </p>
+                  </div>
+              </section>
+
+              <!--LOGIN INTERFACE-->
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Enter Your Credentials</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                      <form action="/login" method="POST">
+                        <div class="mb-3">
+                          <label for="tel" class="form-label">Phone</label>
+                          <input type="tel" class="form-control" id="i_phone" aria-describedby="emailHelp" name="phone">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="i_password" name="password">
+                        </div>
+                        <div>
+                          <div>Dont have a account?</div>
+                          <a href="/signup">Signup</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary my-3">Login</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <script src="/javascript/customer.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>

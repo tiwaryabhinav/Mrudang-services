@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Register</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<link href="/css/detail.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Custom Theme files -->
+	<!-- web font -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+	<!-- //web font -->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/login">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Login</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  What are you looking for
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/getkharif" id="kharif_clk">Kharif crops</a></li>
+                  <li><a class="dropdown-item" href="/getrabi" id="rabi_clk">Rabi Crops</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1 style="color: #6252FF;">Register at Mrudang</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="/signup" method="POST" enctype="multipart/form-data">
+					<input type="text" placeholder="Name" class="form__input" name="name" />
+					<input type="number" placeholder="Age" min="0" class="form__input" name="age" />
+					<input type="text" placeholder="Address" class="form__input" name="address" />
+					<input type="text" placeholder="State" class="form__input" name="state" />
+					<input list="crop" placeholder="Choose your crop type:" name="Produce_type">
+					<datalist id="crop">
+						<option value="Kharif">
+						<option value="Rabi">
+					</datalist>
+					<input type="number" placeholder="Produce Quantity" min="0" class="form__input"
+						name="Produce_quantity" />
+					<br>
+					<input type="number" placeholder="Phone" min="0" class="form__input" name="Phone" />
+					<input type="email" placeholder="Email" class="form__input" name="email" />
+					<input type="text" placeholder="Estimated Price" min="0" class="form__input"
+						name="estimated_price" />
+					<input type="text" placeholder="Tell us more..." min="0" class="form__input input-lg" name="info" / style="height: 100px;">
+					<input type="password" placeholder="Password" class="form__input" name="Password" />
+					<div>
+						<label for="file">Upload a profile picture</label>
+						<input type="file" id="file" name="avatar">
+					</div>
+
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP" style="color: white;">
+				</form>
+				<p>Don't have an Account? <a href="/login"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/"
+					target="_blank">Colorlib</a></p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Enter Your Credentials</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+	  
+		  
+			  <form action="/login" method="POST">
+				<div class="mb-3">
+				  <label for="tel" class="form-label">Phone</label>
+				  <input type="tel" class="form-control" id="i_phone" aria-describedby="emailHelp" name="phone">
+				</div>
+				<div class="mb-3">
+				  <label for="exampleInputPassword1" class="form-label">Password</label>
+				  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+				</div>
+				<div>
+				  <div>Dont have a account?</div>
+				  <a href="/signup">Signup</a>
+				</div>
+				<button type="submit" class="btn btn-primary my-3">Login</button>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>

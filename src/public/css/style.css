@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html{
+    font-weight: 200;
+    font-size: 15px;
+}
+
+
+.bgimg{
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.row h1:after{
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 180px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+p{
+    font-weight: 400;
+    font-size: 18px;   
+
+}
+
+
+.long-copy{
+    line-height: 145%;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 120%;
+}
+
+
+
+.title{
+    text-align: center;
+}
+.title_name
+{
+    font-family: 'Bangers', cursive;
+    font-size: 200%;
+    color:black;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+.title_name:after{
+    display: block;
+    height: 2px;
+    background-color:black;
+    content: " ";
+    width: 180px;
+    margin: 0 auto;
+}
+
+*:focus{
+    outline: none;
+}
+.navigation li{
+    display: block;
+    float: left;
+    margin-left: 5%;
+}
+.navigation li a:link,
+.navigation li a:visited{
+    text-decoration: none;color: #fff;
+}
+.navigation li a:hover,
+.navigation li a:active{
+    text-decoration: none;color: #d6d3d3;
+}
+
+.links-nav li{
+    display: block;
+    float: right;
+     margin-left: 5%;
+}
+.links-nav li a:link,
+.links-nav li a:visited{
+    text-decoration: none;
+    color: #fff;
+}
+.links-nav li a:hover,
+.links-nav li a:active{
+    color:#d6d3d3;
+}
+.last-stat{
+    margin-top: 5%;
+    text-align: center;
+}
+.footer{
+    background-color: #333;
+    width: 100%;
+}
