@@ -190,7 +190,6 @@ person_schema.statics.getlasttoken = async (id) => {
 person_schema.pre('save', async function (next) {
     try{
     const person = this
-    person.active = 0;
     person.Produce_type = person.Produce_type.toLowerCase()
 
     if (person.isModified('Password')) {
