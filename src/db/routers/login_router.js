@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-
 const express = require('express')
 const router = new express.Router()
 const Person = require('../../models/login_schema');
@@ -52,7 +48,6 @@ router.post('/signup', upload.single('avatar'), async (req, res) => {
     try {
         const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
         person.avatar = buffer
-        person.active = 0;
         await person.save()
         res.render('index.ejs', {
             alert: 'success'
