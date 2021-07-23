@@ -7,97 +7,112 @@ const sgMail = require('@sendgrid/mail')
 const api = process.env.SENDGRID_API_KEY
 sgMail.setApiKey(api)
 const passportLocalMongoose = require('passport-local-mongoose');
+const smsapikey = process.env.smsapikey
+const fast2sms = require('fast-two-sms')
+const Nexmo = require('nexmo')
+const nodemailer = require("nodemailer");
 
-const uri =process.env.MONGO_URL
+
+
+const uri = process.env.MONGO_URL
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true
 })
 
+const nexmo = new Nexmo({
+    apiKey: "2d36f221",
+    apiSecret: "eKbLC6Nwt8Efk8tJ"
+})
+
 const person_schema = new mongoose.Schema({
     name: {
         type: String,
-        required:true,
+        required: true,
         trim: true
     },
     age: {
         type: Number,
-        required:true
+        required: true
     },
     address: {
-    type: String,
-    required:true
+        type: String,
+        required: true
     },
     state: {
-    type: String,
-    required:true
+        type: String,
+        required: true
     },
     Produce_type: {
-    type: String,
-    required:true
+        type: String,
+        required: true
+    },
+    crop: {
+        type: String,
+        required: true
     },
     Produce_quantity: {
-    type: Number,
-    required:true
+        type: Number,
+        required: true
     },
     Phone: {
-    type: Number,
-    required:true,
-    unique: true
+        type: Number,
+        required: true,
+        unique: true
     },
     email: {
-    type: String,
-    required:true,
-    validate(value) {
-        if (!validator.isEmail(value)) {
-            throw new Error('Email is invalid')
+        type: String,
+        required: true,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error('Email is invalid')
+            }
         }
-    }
-},
+    },
     estimated_price: {
-    type: Number,
-    required:true
+        type: Number,
+        required: true
     },
     info: {
-    type: String,
-    required:true
+        type: String,
+        required: true
     },
     Password: {
-    type: String,
-    trim: true,
-    required:true
-    /*validate(value){
-    if(value==phone)
-    {   
-        throw new Error("Password must not be same as phone number")
-    }
-    */
-},
+        type: String,
+        trim: true,
+        required: true
+        /*validate(value){
+        if(value==phone)
+        {   
+            throw new Error("Password must not be same as phone number")
+        }
+        */
+    },
     avatar: {
-    type: Buffer,
-    required:true
+        type: Buffer,
+        required: true
     },
     message: [
-    {
-        From: {
-            type: String
-        },
-        Address: {
-            type: String
-        },
-        State: {
-            type: String
-        },
-        Quantity: {
-            type: Number
-        },
-        Phone: {
-            type: Number
+        {
+            From: {
+                type: String
+            },
+            Address: {
+                type: String
+            },
+            State: {
+                type: String
+            },
+            Quantity: {
+                type: Number
+            },
+            Phone: {
+                type: Number
+            }
         }
-    }
     ],
     active: {
-    type: Number
+        type: Number
     }
 })
 
@@ -155,16 +170,35 @@ person_schema.statics.findByNumber = async (Phone) => {
 person_schema.statics.insertmsg = async (order, id) => {
     const user = await Person.findById(id)
     user.message.push(order)
-    sgMail.send({
-        to: user.email,
-        from: 'tiwaryabhinav125@gmail.com',
-        subject: 'New Order Request',
-        text: `${order.From} from ${order.Address} ${order.State} has placed a order request of ${order.Quantity}kg`
-    }).then(() => {
-        console.log("send");
-    }).catch(() => {
-        console.log("Failed")
-    })
+
+    let transporter = nodemailer.createTransport({
+        service:'gmail',
+        auth: {
+          user: process.env.EMAIL, // generated ethereal user
+          pass: process.env.PASSWORD_EMAIL, // generated ethereal password
+        },
+      });
+    
+      // send mail with defined transport object
+
+      const mailoptions={
+        from: 'tiwaryabhinav125@gmail.com', // sender address
+        to: user.email, // list of receivers
+        subject: "Request Order", // Subject line
+        text:`${order.From} from ${order.Address} ${order.State} has placed a order request of ${order.Quantity}kg`, // plain text body
+      };
+
+      transporter.sendMail(mailoptions,(error,info)=>{
+          if(error)
+          {
+              console.log(error);
+          }
+          else
+          {
+              console.log(info.response)
+          }
+      });
+
     user.save()
 }
 
@@ -188,18 +222,18 @@ person_schema.statics.getlasttoken = async (id) => {
 }
 
 person_schema.pre('save', async function (next) {
-    try{
-    const person = this
-    person.Produce_type = person.Produce_type.toLowerCase()
+    try {
+        const person = this
+        person.Produce_type = person.Produce_type.toLowerCase()
 
-    if (person.isModified('Password')) {
-        person.Password = await bcrypt.hash(person.Password, 8)
+        if (person.isModified('Password')) {
+            person.Password = await bcrypt.hash(person.Password, 8)
+        }
+
+        next()
+    } catch {
+        throw new Error();
     }
-
-    next()
-}catch{
-    throw new Error();
-}
 })
 
 person_schema.plugin(passportLocalMongoose);

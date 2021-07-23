@@ -4,11 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link href="/css/detail.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=PT+Sans+Narrow&display=swap"
     rel="stylesheet">
@@ -142,6 +139,15 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
+                  <h6 class="mb-0">Crop Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%=user.crop%>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
                   <h6 class="mb-0">Email</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
@@ -232,7 +238,7 @@
     </div>
 
     <!--MODAL FOR CUSTOMER-->
-
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -241,8 +247,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-
-
             <form action="/sendrequest?id=<%=user._id%>" method="POST">
               <div class="mb-3">
                 <label for="text" class="form-label">Name</label>
@@ -252,17 +256,17 @@
                 <label for="text" class="form-label">Address</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name="address">
               </div>
-
+    
               <div class="mb-3">
                 <label for="text" class="form-label">State</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name="state">
               </div>
-
+    
               <div class="mb-3">
                 <label for="number" class="form-label">Quantity</label>
                 <input type="number" min="0" class="form-control" id="exampleInputPassword1" name="quantity">
               </div>
-
+    
               <div class="mb-3">
                 <label for="number" class="form-label">Phone</label>
                 <input type="number" min="0" class="form-control" id="exampleInputPassword1" name="phone">
@@ -273,9 +277,14 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-      crossorigin="anonymous"></script>
+
 </body>
 
 </html>
+
+
+
+<!--
+
+
+-->
