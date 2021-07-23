@@ -7,11 +7,8 @@ const sgMail = require('@sendgrid/mail')
 const api = process.env.SENDGRID_API_KEY
 sgMail.setApiKey(api)
 const passportLocalMongoose = require('passport-local-mongoose');
-const smsapikey = process.env.smsapikey
-const fast2sms = require('fast-two-sms')
-const Nexmo = require('nexmo')
 const nodemailer = require("nodemailer");
-
+const Nexmo=require('nexmo')
 
 
 const uri = process.env.MONGO_URL
